@@ -12,9 +12,6 @@ app.get('/app', (req, res)=>{
     res.status(200).send("200 OK");
 })
 
-app.get("/app/*", (req, res) => {
-    res.status(404).send("404 NOT FOUND");
-})
 
 app.get('/app/rps/', (req, res)=>{
     res.status(200).send(JSON.stringify(rps()));
@@ -38,6 +35,10 @@ app.get('/app/rpsls/play/', (req,res)=>{
 
 app.get('/app/rpsls/play/:shot', (req,res)=>{
     res.status(200).send(JSON.stringify(rpsls(req.params.shot)));
+})
+
+app.get("/app/*", (req, res) => {
+    res.status(404).send("404 NOT FOUND");
 })
 
 app.listen(port)
